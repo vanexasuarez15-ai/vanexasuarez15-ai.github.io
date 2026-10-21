@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Información sobre el estado de los pupitres del aula.">
+  <title>Pupitres del Aula</title>
+  <style>
+    :root { --navy:#183b66; --blue:#2e65a0; --pale:#edf5ff; --ink:#18283d; --muted:#5d6c7d; --green:#16743a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#f4f8fd; color:var(--ink); }
+    header { background:var(--navy); color:white; padding:18px 7%; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:12px; font-size:1.35rem; font-weight:700; }
+    .brand-icon { font-size:2rem; }
+    nav a { color:white; text-decoration:none; margin-left:22px; font-size:.96rem; }
+    main { max-width:1100px; margin:0 auto; padding:48px 22px; }
+    .intro { text-align:center; margin-bottom:32px; }
+    h1 { color:var(--navy); font-size:clamp(2rem, 5vw, 3.2rem); margin:0 0 12px; }
+    .intro p { color:var(--muted); font-size:1.08rem; line-height:1.6; margin:0; }
+    .panel { background:white; border:1px solid #dce8f7; border-radius:20px; padding:clamp(20px, 4vw, 38px); display:grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap:32px; box-shadow:0 10px 30px rgba(24,59,102,.06); }
+    .desk-art { background:var(--pale); border-radius:16px; display:flex; align-items:center; justify-content:center; min-height:260px; padding:24px; }
+    .desk-art svg { width:min(100%, 310px); height:auto; }
+    .details { display:flex; flex-direction:column; gap:16px; justify-content:center; }
+    .detail { background:#f3f7fc; border-radius:14px; padding:20px 22px; }
+    .label { color:var(--muted); font-size:.95rem; margin-bottom:8px; }
+    .value { font-size:clamp(1.2rem, 2.5vw, 1.65rem); font-weight:700; overflow-wrap:anywhere; }
+    .status { display:inline-block; color:#b42318; background:#fee2e2; border:1px solid #fca5a5; border-radius:999px; padding:10px 16px; font-size:1.1rem; font-weight:700; }
+    footer { text-align:center; padding:0 20px 32px; color:var(--muted); line-height:1.5; }
+    @media (max-width:700px) {
+      header { align-items:flex-start; flex-direction:column; }
+      nav a { margin:0 16px 0 0; }
+      .panel { grid-template-columns:1fr; gap:20px; }
+      .desk-art { min-height:220px; }
+      main { padding-top:32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="brand-icon" aria-hidden="true">🏫</span><span>Ins La laguna: El cuidado es de todos</span></div>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#informacion">Información</a>
+      <a href="#estado">Estado</a>
+    </nav>
+  </header>
+  <main id="inicio">
+    <section class="intro">
+      <h1>Información del Pupitre</h1>
+      <p>Consulta los datos del estudiante y el estado actual de los pupitres del salón.</p>
+    </section>
+    <section class="panel" id="informacion" aria-label="Información del estudiante y del pupitre">
+      <div class="desk-art" role="img" aria-label="Ilustración de un pupitre escolar">
+        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="160" cy="265" rx="112" ry="15" fill="#d4e3f5"/>
+          <path d="M87 130 L75 250 M231 130 L247 250 M111 154 L101 253 M209 154 L222 253" stroke="#263d55" stroke-width="12" stroke-linecap="round"/>
+          <path d="M78 204 L235 204 M99 235 L226 235" stroke="#263d55" stroke-width="7" stroke-linecap="round"/>
+          <path d="M103 47 Q103 39 112 39 L213 39 Q223 39 223 49 L223 116 L103 116 Z" fill="#b9793c" stroke="#8d5529" stroke-width="4"/>
+          <path d="M58 111 Q56 103 68 100 L257 100 Q269 103 265 113 L247 143 Q243 150 233 150 L84 150 Q75 150 71 142 Z" fill="#e8b66e" stroke="#9b642f" stroke-width="4"/>
+          <path d="M80 143 L91 160 M245 143 L232 160" stroke="#263d55" stroke-width="8" stroke-linecap="round"/>
+          <path d="M95 160 L232 160 L219 178 L107 178 Z" fill="#d89a51" stroke="#9b642f" stroke-width="3"/>
+          <circle cx="118" cy="57" r="3" fill="#f4d7a7"/><circle cx="207" cy="57" r="3" fill="#f4d7a7"/>
+        </svg>
+      </div>
+      <div class="details">
+        <div class="detail">
+          <div class="label">Nombre de estudiante</div>
+          <div class="value">Vanesa Timoté</div>
+        </div>
+        <div class="detail">
+          <div class="label">Grado</div>
+          <div class="value">11°</div>
+        </div>
+        <div class="detail" id="estado">
+          <div class="label">Estado de pupitres</div>
+          <span class="status">❌ Mala Condiciones</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>Recordemos cuidar los pupitres: son parte de nuestro espacio de estudio.</footer>
+</body>
+</html>
